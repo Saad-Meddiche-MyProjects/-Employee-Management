@@ -12,9 +12,10 @@ function autoload($class_name)
 
     $array_paths = array(
         'database/',
-        'app/classes',
+        'app/classes/',
         'models/',
         'controllers/'
+    
     );
 
     $parts = explode('\\', $class_name);
@@ -31,4 +32,5 @@ function autoload($class_name)
             include_once $file;
         }
     }
+    
 }
