@@ -5,3 +5,4 @@ RewriteEngine On
 RewriteBase /Employee-Management/
 
 RewriteRule ^([-a-zA-Z0-9]+)$ index.php?page=$1
+#hide every thing before $1 exept the base [/Employee-Management/] and only show what is after $1

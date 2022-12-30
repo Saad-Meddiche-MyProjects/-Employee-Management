@@ -9,23 +9,30 @@ spl_autoload_register('autoload');
 
 function autoload($class_name)
 {
-
     // die(print_r($class_name));
+
     $array_paths = array(
         'database/',
         'app/classes/',
         'models/',
         'controllers/'
+
     );
 
+    $parts = explode('\\', $class_name);
+    // die(print_r($parts));
 
-    /* Boocle the class name with each paths , and if it exist then enclud it */
+    // Delete the last item in the array
+    $name = array_pop($parts);
+
+    // die(print_r($name));
+
     foreach ($array_paths as $path) {
 
         $file = sprintf($path . '%s.php', $class_name);
-
-        //if the file exist then include it 
+        // die(print_r($file));
         if (is_file($file)) {
+
             include_once $file;
         }
     }
